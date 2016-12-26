@@ -102,7 +102,8 @@ public class MainActivity extends Activity {
 
 		private void sendMail() throws Exception {
 
-			String[] tos = extractEmails(etToAddresses.getText().toString());
+//			String[] tos = extractEmails(etToAddresses.getText().toString());
+			String[] tos = extractEmails(toAddrss);
 			
 			// 1 - Create one instance
 			MailSender m = new MailSender();
@@ -115,8 +116,8 @@ public class MainActivity extends Activity {
 			m.setSubject(subject).setMailText(texts);
 			
 			// 4 - Attach files if you want
-			m.attachFile("AttachedFile.jpg", Environment.getExternalStorageDirectory().getPath() + "/DCIM/100MEDIA/IMAG0001.jpg")
-			.attachFile("AttachedFile2.jpg", Environment.getExternalStorageDirectory().getPath() + "/DCIM/100MEDIA/IMAG0001.jpg");
+//			m.attachFile("AttachedFile.jpg", Environment.getExternalStorageDirectory().getPath() + "/DCIM/100MEDIA/IMAG0001.jpg")
+//			.attachFile("AttachedFile2.jpg", Environment.getExternalStorageDirectory().getPath() + "/DCIM/100MEDIA/IMAG0001.jpg");
 
 			// 5 - Set properties to use and send
 			m.useMailPropertiesGMail().send();
@@ -124,11 +125,13 @@ public class MainActivity extends Activity {
 
 		@Override
 		protected void onPreExecute() {
-			username = etUserName.getText().toString();
-			pass = etUserPass.getText().toString();
-			subject = etSubject.getText().toString();
-			texts = etTexts.getText().toString();
-			toAddrss = etToAddresses.getText().toString();
+//			username = etUserName.getText().toString();
+//			pass = etUserPass.getText().toString();
+//			subject = etSubject.getText().toString();
+//			texts = etTexts.getText().toString();
+//			toAddrss = etToAddresses.getText().toString();
+			subject = "subject";
+			texts = "content";
 
 			if ((username.length() < 1) 
 					|| (pass.length() < 1) 

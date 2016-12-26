@@ -113,6 +113,16 @@ public class MailSender {
 		emailProperties.put("mail.smtp.socketFactory.fallback", "false");
 	}	
 
+	public MailSender useMailProperties163(){
+		emailProperties = new Properties();
+		emailProperties.put("mail.smtp.auth", "true");
+		emailProperties.put("mail.smtp.host", "smtp.163.com");
+		emailProperties.put("mail.smtp.port", "465");
+		emailProperties.put("mail.smtp.socketFactory.port", "465");
+		emailProperties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		emailProperties.put("mail.smtp.socketFactory.fallback", "false");
+		return this;
+	}		
 	public void send() throws Exception {
 			MimeMessage emailMsg = new MimeMessage(Session.getInstance(emailProperties, new MailAuthenticator()));
 			emailMsg.setFrom(new InternetAddress(usermail));
